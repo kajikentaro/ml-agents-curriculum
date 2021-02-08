@@ -1,0 +1,24 @@
+{
+    "SearchTarget": {
+        "checkpoints": [
+            {
+                "steps": 254964,
+                "file_path": "results\\SaitSeekObj-2\\SearchTarget\\SearchTarget-254964.onnx",
+                "reward": 1.0,
+                "creation_time": 1612587846.4473183
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 254964,
+            "file_path": "results\\SaitSeekObj-2\\SearchTarget.onnx",
+            "reward": 1.0,
+            "creation_time": 1612587846.4473183
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.23.0",
+        "torch_version": "1.7.0+cu110",
+        "tensorflow_version": "2.4.1"
+    }
+}

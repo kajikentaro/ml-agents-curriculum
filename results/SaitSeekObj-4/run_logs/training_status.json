@@ -1,0 +1,30 @@
+{
+    "SearchTarget": {
+        "checkpoints": [
+            {
+                "steps": 0,
+                "file_path": "results\\SaitSeekObj-4\\SearchTarget\\SearchTarget-0.onnx",
+                "reward": null,
+                "creation_time": 1612589994.982582
+            },
+            {
+                "steps": 500114,
+                "file_path": "results\\SaitSeekObj-4\\SearchTarget\\SearchTarget-500114.onnx",
+                "reward": null,
+                "creation_time": 1612590052.0913334
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 500114,
+            "file_path": "results\\SaitSeekObj-4\\SearchTarget.onnx",
+            "reward": null,
+            "creation_time": 1612590052.0913334
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.23.0",
+        "torch_version": "1.7.0+cu110",
+        "tensorflow_version": "2.4.1"
+    }
+}
