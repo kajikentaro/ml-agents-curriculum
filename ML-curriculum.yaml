@@ -1,9 +1,9 @@
 behaviors:
-  default:
+  SearchTarget:
     trainer_type: ppo
     summary_freq: 10000
     time_horizon: 64
-    max_steps: 1500000
+    max_steps: 10000000
     keep_checkpoints: 5
     checkpoint_interval: 500000
     hyperparameters:
@@ -13,7 +13,7 @@ behaviors:
     network_settings:
       normalize: false
       hidden_units: 128
-      num_layers: 2
+      num_layers: 3
 environment_parameters:
   stage_number:
     curriculum:
