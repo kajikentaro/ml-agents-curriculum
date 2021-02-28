@@ -8,31 +8,46 @@ using Unity.MLAgents.Sensors;
 
 public class MainMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public static int aliveCount = 9;
-    public static int nextStage = -1;
-    public static int nowStage = -1;
+    //シーン内のプレハブの数
+    static int aliveAgent= 9;
+    static int nowStageNumber;
+    //ステージ番号と、ステージ名の辞書
+    Dictionary<int, string> sceneName = new Dictionary<int, string> { { 1, "TrainingArea1" },{ 2, "TrainingArea2" },{ 3, "TrainingArea3" },{ 4, "TrainingArea4" } };
     void Start()
     {
+        //MainMenuを放棄しないよう(常に裏で動き続けるよう)にする。
         DontDestroyOnLoad(this);
+        //newGame関数を2秒後に開始
         Invoke("newGame", 2);
     }
     void newGame()
     {
-        Debug.Log("start new game");
-        int nextStageNumber = (int)Academy.Instance.EnvironmentParameters.GetWithDefault("stage_number", -1.0f);
-        nowStage = nextStageNumber;
-        SceneManager.LoadScene(nextStageNumber);
+        //yamlから学習の進捗に応じたステージ番号を取得
+        int newStageNumber = (int)Academy.Instance.EnvironmentParameters.GetWithDefault("stage_number", -1.0f);
+        nowStageNumber= newStageNumber;
+        //ステージ番号からステージをロードする。
+        SceneManager.LoadScene(sceneName[newStageNumber]);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (aliveCount == 0)
+        if (aliveAgent == 0)
         {
-            aliveCount = 9;
+            aliveAgent = 9;
             Invoke("newGame", 5);
         }
+    }
+    //Agentから呼び出される関数
+    public static bool stageContinue()
+    {
+        int newStageNumber = (int)Academy.Instance.EnvironmentParameters.GetWithDefault("stage_number", -1.0f);
+        if (nowStageNumber == newStageNumber) return true;
+        return false;
+    }
+    //Agentから呼び出される関数
+    public static void agentDestroyed()
+    {
+        aliveAgent--;
     }
 }
 

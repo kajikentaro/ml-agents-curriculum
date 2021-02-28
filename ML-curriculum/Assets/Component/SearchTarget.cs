@@ -18,28 +18,9 @@ public class SearchTarget: Agent
         myrenderer = GetComponent<Renderer>();
         myrenderer .material.color = Color.blue;
     }
-    private bool continueThisStage()
-    {
-        int nextStageNumber = (int)Academy.Instance.EnvironmentParameters.GetWithDefault("stage_number", -1.0f);
-        if(nextStageNumber != MainMenu.nowStage)
-        {
-            MainMenu.aliveCount--;
-            MainMenu.nextStage = nextStageNumber;
-            DestroyImmediate(GetComponent<DecisionRequester>());
-            DestroyImmediate(this.gameObject);
-            //Academy academy = Academy.Instance;
-            //academy.EnvironmentStep();
-            //EpisodeInterrupted();
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }
     public float floorSize = 10f;
     public override void OnEpisodeBegin(){
-        if (continueThisStage())
+        if (MainMenu.stageContinue())
         {
             this.rBody.velocity = Vector3.zero;
             this.transform.localPosition = new Vector3( 4.0f, 0.75f, 0.0f);
@@ -52,6 +33,12 @@ public class SearchTarget: Agent
             Target.localPosition = targetNewPosition;
             startTime = Time.time;
             myrenderer .material.color = Color.blue;
+        }
+        else
+        {
+            MainMenu.agentDestroyed();
+            DestroyImmediate(GetComponent<DecisionRequester>());
+            DestroyImmediate(this.gameObject);
         }
     }
     public override void CollectObservations(VectorSensor sensor){

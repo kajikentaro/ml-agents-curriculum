@@ -495,7 +495,7 @@ Transform:
   m_GameObject: {fileID: 6159819232618020708}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2.58, y: 1, z: 2.77}
-  m_LocalScale: {x: 3, y: 1, z: 3}
+  m_LocalScale: {x: 7, y: 1, z: 7}
   m_Children: []
   m_Father: {fileID: 9181046539777740001}
   m_RootOrder: 1
@@ -711,7 +711,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9181046539777740001}
   m_Layer: 0
-  m_Name: TrainingStage
+  m_Name: TrainingStage1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -880,6 +880,7 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
   Target: {fileID: 2595766155124578653}
+  floorSize: 10
   forceMultiplier: 6
 --- !u!114 &6751889389862273397
 MonoBehaviour:
