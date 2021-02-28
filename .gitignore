@@ -28,9 +28,6 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
-#mlagents
-.ml-agents-release_12/
-
 # Visual Studio
 .vs
 Release/
